@@ -1,0 +1,422 @@
+Created by PLY version 3.11 (http://www.dabeaz.com/ply)
+
+Grammar
+
+Rule 0     S' -> expression
+Rule 1     expression -> expression PLUS expression
+Rule 2     expression -> expression MINUS expression
+Rule 3     expression -> expression MULTIPLY expression
+Rule 4     expression -> expression DIVIDE expression
+Rule 5     expression -> SQRT expression
+Rule 6     expression -> expression PERCENT
+Rule 7     expression -> LPAREN expression RPAREN
+Rule 8     expression -> NUMBER
+Rule 9     expression -> MINUS expression
+
+Terminals, with rules where they appear
+
+DIVIDE               : 4
+LPAREN               : 7
+MINUS                : 2 9
+MULTIPLY             : 3
+NUMBER               : 8
+PERCENT              : 6
+PLUS                 : 1
+RPAREN               : 7
+SQRT                 : 5
+error                : 
+
+Nonterminals, with rules where they appear
+
+expression           : 1 1 2 2 3 3 4 4 5 6 7 9 0
+
+Parsing method: LALR
+
+state 0
+
+    (0) S' -> . expression
+    (1) expression -> . expression PLUS expression
+    (2) expression -> . expression MINUS expression
+    (3) expression -> . expression MULTIPLY expression
+    (4) expression -> . expression DIVIDE expression
+    (5) expression -> . SQRT expression
+    (6) expression -> . expression PERCENT
+    (7) expression -> . LPAREN expression RPAREN
+    (8) expression -> . NUMBER
+    (9) expression -> . MINUS expression
+
+    SQRT            shift and go to state 3
+    LPAREN          shift and go to state 4
+    NUMBER          shift and go to state 5
+    MINUS           shift and go to state 2
+
+    expression                     shift and go to state 1
+
+state 1
+
+    (0) S' -> expression .
+    (1) expression -> expression . PLUS expression
+    (2) expression -> expression . MINUS expression
+    (3) expression -> expression . MULTIPLY expression
+    (4) expression -> expression . DIVIDE expression
+    (6) expression -> expression . PERCENT
+
+    PLUS            shift and go to state 6
+    MINUS           shift and go to state 7
+    MULTIPLY        shift and go to state 8
+    DIVIDE          shift and go to state 9
+    PERCENT         shift and go to state 10
+
+
+state 2
+
+    (9) expression -> MINUS . expression
+    (1) expression -> . expression PLUS expression
+    (2) expression -> . expression MINUS expression
+    (3) expression -> . expression MULTIPLY expression
+    (4) expression -> . expression DIVIDE expression
+    (5) expression -> . SQRT expression
+    (6) expression -> . expression PERCENT
+    (7) expression -> . LPAREN expression RPAREN
+    (8) expression -> . NUMBER
+    (9) expression -> . MINUS expression
+
+    SQRT            shift and go to state 3
+    LPAREN          shift and go to state 4
+    NUMBER          shift and go to state 5
+    MINUS           shift and go to state 2
+
+    expression                     shift and go to state 11
+
+state 3
+
+    (5) expression -> SQRT . expression
+    (1) expression -> . expression PLUS expression
+    (2) expression -> . expression MINUS expression
+    (3) expression -> . expression MULTIPLY expression
+    (4) expression -> . expression DIVIDE expression
+    (5) expression -> . SQRT expression
+    (6) expression -> . expression PERCENT
+    (7) expression -> . LPAREN expression RPAREN
+    (8) expression -> . NUMBER
+    (9) expression -> . MINUS expression
+
+    SQRT            shift and go to state 3
+    LPAREN          shift and go to state 4
+    NUMBER          shift and go to state 5
+    MINUS           shift and go to state 2
+
+    expression                     shift and go to state 12
+
+state 4
+
+    (7) expression -> LPAREN . expression RPAREN
+    (1) expression -> . expression PLUS expression
+    (2) expression -> . expression MINUS expression
+    (3) expression -> . expression MULTIPLY expression
+    (4) expression -> . expression DIVIDE expression
+    (5) expression -> . SQRT expression
+    (6) expression -> . expression PERCENT
+    (7) expression -> . LPAREN expression RPAREN
+    (8) expression -> . NUMBER
+    (9) expression -> . MINUS expression
+
+    SQRT            shift and go to state 3
+    LPAREN          shift and go to state 4
+    NUMBER          shift and go to state 5
+    MINUS           shift and go to state 2
+
+    expression                     shift and go to state 13
+
+state 5
+
+    (8) expression -> NUMBER .
+
+    PLUS            reduce using rule 8 (expression -> NUMBER .)
+    MINUS           reduce using rule 8 (expression -> NUMBER .)
+    MULTIPLY        reduce using rule 8 (expression -> NUMBER .)
+    DIVIDE          reduce using rule 8 (expression -> NUMBER .)
+    PERCENT         reduce using rule 8 (expression -> NUMBER .)
+    $end            reduce using rule 8 (expression -> NUMBER .)
+    RPAREN          reduce using rule 8 (expression -> NUMBER .)
+
+
+state 6
+
+    (1) expression -> expression PLUS . expression
+    (1) expression -> . expression PLUS expression
+    (2) expression -> . expression MINUS expression
+    (3) expression -> . expression MULTIPLY expression
+    (4) expression -> . expression DIVIDE expression
+    (5) expression -> . SQRT expression
+    (6) expression -> . expression PERCENT
+    (7) expression -> . LPAREN expression RPAREN
+    (8) expression -> . NUMBER
+    (9) expression -> . MINUS expression
+
+    SQRT            shift and go to state 3
+    LPAREN          shift and go to state 4
+    NUMBER          shift and go to state 5
+    MINUS           shift and go to state 2
+
+    expression                     shift and go to state 14
+
+state 7
+
+    (2) expression -> expression MINUS . expression
+    (1) expression -> . expression PLUS expression
+    (2) expression -> . expression MINUS expression
+    (3) expression -> . expression MULTIPLY expression
+    (4) expression -> . expression DIVIDE expression
+    (5) expression -> . SQRT expression
+    (6) expression -> . expression PERCENT
+    (7) expression -> . LPAREN expression RPAREN
+    (8) expression -> . NUMBER
+    (9) expression -> . MINUS expression
+
+    SQRT            shift and go to state 3
+    LPAREN          shift and go to state 4
+    NUMBER          shift and go to state 5
+    MINUS           shift and go to state 2
+
+    expression                     shift and go to state 15
+
+state 8
+
+    (3) expression -> expression MULTIPLY . expression
+    (1) expression -> . expression PLUS expression
+    (2) expression -> . expression MINUS expression
+    (3) expression -> . expression MULTIPLY expression
+    (4) expression -> . expression DIVIDE expression
+    (5) expression -> . SQRT expression
+    (6) expression -> . expression PERCENT
+    (7) expression -> . LPAREN expression RPAREN
+    (8) expression -> . NUMBER
+    (9) expression -> . MINUS expression
+
+    SQRT            shift and go to state 3
+    LPAREN          shift and go to state 4
+    NUMBER          shift and go to state 5
+    MINUS           shift and go to state 2
+
+    expression                     shift and go to state 16
+
+state 9
+
+    (4) expression -> expression DIVIDE . expression
+    (1) expression -> . expression PLUS expression
+    (2) expression -> . expression MINUS expression
+    (3) expression -> . expression MULTIPLY expression
+    (4) expression -> . expression DIVIDE expression
+    (5) expression -> . SQRT expression
+    (6) expression -> . expression PERCENT
+    (7) expression -> . LPAREN expression RPAREN
+    (8) expression -> . NUMBER
+    (9) expression -> . MINUS expression
+
+    SQRT            shift and go to state 3
+    LPAREN          shift and go to state 4
+    NUMBER          shift and go to state 5
+    MINUS           shift and go to state 2
+
+    expression                     shift and go to state 17
+
+state 10
+
+    (6) expression -> expression PERCENT .
+
+    PLUS            reduce using rule 6 (expression -> expression PERCENT .)
+    MINUS           reduce using rule 6 (expression -> expression PERCENT .)
+    MULTIPLY        reduce using rule 6 (expression -> expression PERCENT .)
+    DIVIDE          reduce using rule 6 (expression -> expression PERCENT .)
+    PERCENT         reduce using rule 6 (expression -> expression PERCENT .)
+    $end            reduce using rule 6 (expression -> expression PERCENT .)
+    RPAREN          reduce using rule 6 (expression -> expression PERCENT .)
+
+
+state 11
+
+    (9) expression -> MINUS expression .
+    (1) expression -> expression . PLUS expression
+    (2) expression -> expression . MINUS expression
+    (3) expression -> expression . MULTIPLY expression
+    (4) expression -> expression . DIVIDE expression
+    (6) expression -> expression . PERCENT
+
+    PLUS            reduce using rule 9 (expression -> MINUS expression .)
+    MINUS           reduce using rule 9 (expression -> MINUS expression .)
+    MULTIPLY        reduce using rule 9 (expression -> MINUS expression .)
+    DIVIDE          reduce using rule 9 (expression -> MINUS expression .)
+    PERCENT         reduce using rule 9 (expression -> MINUS expression .)
+    $end            reduce using rule 9 (expression -> MINUS expression .)
+    RPAREN          reduce using rule 9 (expression -> MINUS expression .)
+
+  ! PLUS            [ shift and go to state 6 ]
+  ! MINUS           [ shift and go to state 7 ]
+  ! MULTIPLY        [ shift and go to state 8 ]
+  ! DIVIDE          [ shift and go to state 9 ]
+  ! PERCENT         [ shift and go to state 10 ]
+
+
+state 12
+
+    (5) expression -> SQRT expression .
+    (1) expression -> expression . PLUS expression
+    (2) expression -> expression . MINUS expression
+    (3) expression -> expression . MULTIPLY expression
+    (4) expression -> expression . DIVIDE expression
+    (6) expression -> expression . PERCENT
+
+  ! shift/reduce conflict for PLUS resolved as shift
+  ! shift/reduce conflict for MINUS resolved as shift
+  ! shift/reduce conflict for MULTIPLY resolved as shift
+  ! shift/reduce conflict for DIVIDE resolved as shift
+  ! shift/reduce conflict for PERCENT resolved as shift
+    $end            reduce using rule 5 (expression -> SQRT expression .)
+    RPAREN          reduce using rule 5 (expression -> SQRT expression .)
+    PLUS            shift and go to state 6
+    MINUS           shift and go to state 7
+    MULTIPLY        shift and go to state 8
+    DIVIDE          shift and go to state 9
+    PERCENT         shift and go to state 10
+
+  ! PLUS            [ reduce using rule 5 (expression -> SQRT expression .) ]
+  ! MINUS           [ reduce using rule 5 (expression -> SQRT expression .) ]
+  ! MULTIPLY        [ reduce using rule 5 (expression -> SQRT expression .) ]
+  ! DIVIDE          [ reduce using rule 5 (expression -> SQRT expression .) ]
+  ! PERCENT         [ reduce using rule 5 (expression -> SQRT expression .) ]
+
+
+state 13
+
+    (7) expression -> LPAREN expression . RPAREN
+    (1) expression -> expression . PLUS expression
+    (2) expression -> expression . MINUS expression
+    (3) expression -> expression . MULTIPLY expression
+    (4) expression -> expression . DIVIDE expression
+    (6) expression -> expression . PERCENT
+
+    RPAREN          shift and go to state 18
+    PLUS            shift and go to state 6
+    MINUS           shift and go to state 7
+    MULTIPLY        shift and go to state 8
+    DIVIDE          shift and go to state 9
+    PERCENT         shift and go to state 10
+
+
+state 14
+
+    (1) expression -> expression PLUS expression .
+    (1) expression -> expression . PLUS expression
+    (2) expression -> expression . MINUS expression
+    (3) expression -> expression . MULTIPLY expression
+    (4) expression -> expression . DIVIDE expression
+    (6) expression -> expression . PERCENT
+
+    PLUS            reduce using rule 1 (expression -> expression PLUS expression .)
+    MINUS           reduce using rule 1 (expression -> expression PLUS expression .)
+    PERCENT         reduce using rule 1 (expression -> expression PLUS expression .)
+    $end            reduce using rule 1 (expression -> expression PLUS expression .)
+    RPAREN          reduce using rule 1 (expression -> expression PLUS expression .)
+    MULTIPLY        shift and go to state 8
+    DIVIDE          shift and go to state 9
+
+  ! MULTIPLY        [ reduce using rule 1 (expression -> expression PLUS expression .) ]
+  ! DIVIDE          [ reduce using rule 1 (expression -> expression PLUS expression .) ]
+  ! PLUS            [ shift and go to state 6 ]
+  ! MINUS           [ shift and go to state 7 ]
+  ! PERCENT         [ shift and go to state 10 ]
+
+
+state 15
+
+    (2) expression -> expression MINUS expression .
+    (1) expression -> expression . PLUS expression
+    (2) expression -> expression . MINUS expression
+    (3) expression -> expression . MULTIPLY expression
+    (4) expression -> expression . DIVIDE expression
+    (6) expression -> expression . PERCENT
+
+    PLUS            reduce using rule 2 (expression -> expression MINUS expression .)
+    MINUS           reduce using rule 2 (expression -> expression MINUS expression .)
+    PERCENT         reduce using rule 2 (expression -> expression MINUS expression .)
+    $end            reduce using rule 2 (expression -> expression MINUS expression .)
+    RPAREN          reduce using rule 2 (expression -> expression MINUS expression .)
+    MULTIPLY        shift and go to state 8
+    DIVIDE          shift and go to state 9
+
+  ! MULTIPLY        [ reduce using rule 2 (expression -> expression MINUS expression .) ]
+  ! DIVIDE          [ reduce using rule 2 (expression -> expression MINUS expression .) ]
+  ! PLUS            [ shift and go to state 6 ]
+  ! MINUS           [ shift and go to state 7 ]
+  ! PERCENT         [ shift and go to state 10 ]
+
+
+state 16
+
+    (3) expression -> expression MULTIPLY expression .
+    (1) expression -> expression . PLUS expression
+    (2) expression -> expression . MINUS expression
+    (3) expression -> expression . MULTIPLY expression
+    (4) expression -> expression . DIVIDE expression
+    (6) expression -> expression . PERCENT
+
+    PLUS            reduce using rule 3 (expression -> expression MULTIPLY expression .)
+    MINUS           reduce using rule 3 (expression -> expression MULTIPLY expression .)
+    MULTIPLY        reduce using rule 3 (expression -> expression MULTIPLY expression .)
+    DIVIDE          reduce using rule 3 (expression -> expression MULTIPLY expression .)
+    PERCENT         reduce using rule 3 (expression -> expression MULTIPLY expression .)
+    $end            reduce using rule 3 (expression -> expression MULTIPLY expression .)
+    RPAREN          reduce using rule 3 (expression -> expression MULTIPLY expression .)
+
+  ! PLUS            [ shift and go to state 6 ]
+  ! MINUS           [ shift and go to state 7 ]
+  ! MULTIPLY        [ shift and go to state 8 ]
+  ! DIVIDE          [ shift and go to state 9 ]
+  ! PERCENT         [ shift and go to state 10 ]
+
+
+state 17
+
+    (4) expression -> expression DIVIDE expression .
+    (1) expression -> expression . PLUS expression
+    (2) expression -> expression . MINUS expression
+    (3) expression -> expression . MULTIPLY expression
+    (4) expression -> expression . DIVIDE expression
+    (6) expression -> expression . PERCENT
+
+    PLUS            reduce using rule 4 (expression -> expression DIVIDE expression .)
+    MINUS           reduce using rule 4 (expression -> expression DIVIDE expression .)
+    MULTIPLY        reduce using rule 4 (expression -> expression DIVIDE expression .)
+    DIVIDE          reduce using rule 4 (expression -> expression DIVIDE expression .)
+    PERCENT         reduce using rule 4 (expression -> expression DIVIDE expression .)
+    $end            reduce using rule 4 (expression -> expression DIVIDE expression .)
+    RPAREN          reduce using rule 4 (expression -> expression DIVIDE expression .)
+
+  ! PLUS            [ shift and go to state 6 ]
+  ! MINUS           [ shift and go to state 7 ]
+  ! MULTIPLY        [ shift and go to state 8 ]
+  ! DIVIDE          [ shift and go to state 9 ]
+  ! PERCENT         [ shift and go to state 10 ]
+
+
+state 18
+
+    (7) expression -> LPAREN expression RPAREN .
+
+    PLUS            reduce using rule 7 (expression -> LPAREN expression RPAREN .)
+    MINUS           reduce using rule 7 (expression -> LPAREN expression RPAREN .)
+    MULTIPLY        reduce using rule 7 (expression -> LPAREN expression RPAREN .)
+    DIVIDE          reduce using rule 7 (expression -> LPAREN expression RPAREN .)
+    PERCENT         reduce using rule 7 (expression -> LPAREN expression RPAREN .)
+    $end            reduce using rule 7 (expression -> LPAREN expression RPAREN .)
+    RPAREN          reduce using rule 7 (expression -> LPAREN expression RPAREN .)
+
+WARNING: 
+WARNING: Conflicts:
+WARNING: 
+WARNING: shift/reduce conflict for PLUS in state 12 resolved as shift
+WARNING: shift/reduce conflict for MINUS in state 12 resolved as shift
+WARNING: shift/reduce conflict for MULTIPLY in state 12 resolved as shift
+WARNING: shift/reduce conflict for DIVIDE in state 12 resolved as shift
+WARNING: shift/reduce conflict for PERCENT in state 12 resolved as shift
